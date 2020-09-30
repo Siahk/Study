@@ -21,15 +21,20 @@ type server struct {
 }
 
 func main() {
-	file, err := os.Open("servers.xml") // For read access.
+
+	file, err := os.Open("servers.xml") //for read access.
+
 	if err != nil {
-		fmt.Printf("error: %v", err)
+		fmt.Printf("error:%v", err)
 		return
 	}
+
 	defer file.Close()
+
 	data, err := ioutil.ReadAll(file)
+
 	if err != nil {
-		fmt.Printf("error: %v", err)
+		fmt.Printf("error:%v", err)
 		return
 	}
 	v := Recurlyservers{}
